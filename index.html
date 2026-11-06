@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MindScope AI — Digital habits and wellbeing</title>
+<meta name="description" content="An ML-powered look at how social media, sleep, study and stress relate to a predicted mental health score.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Manrope:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="cur-dot" aria-hidden="true"></div><div class="cur-ring" aria-hidden="true"></div>
+<div class="bg-glow" aria-hidden="true"></div>
+
+<header class="nav" id="nav">
+  <a href="#top" class="brand"><span class="brand-mark"></span>MindScope AI</a>
+  <button class="burger" id="burger" aria-label="Toggle menu" aria-expanded="false"><span></span><span></span></button>
+  <nav id="menu">
+    <a href="#about">Why it matters</a>
+    <a href="#assess">Assessment</a>
+    <a href="#disclaimer">Disclaimer</a>
+  </nav>
+</header>
+
+<main id="top">
+  <section class="hero" id="hero">
+    <canvas id="scene" aria-hidden="true"></canvas>
+    <div class="hero-copy" id="heroCopy">
+      <h1>Every unlock<br>leaves a trace<br>on the mind.</h1>
+      <p>MindScope AI studies how your social media habits, sleep, study load and stress fit together, and returns a predicted mental health score from a trained model.</p>
+      <button class="btn" id="ctaExplore"><span>Explore Your Digital Wellbeing</span></button>
+    </div>
+    <div class="scroll-hint" aria-hidden="true"><i></i>Scroll</div>
+  </section>
+
+  <section class="about" id="about">
+    <div class="wrap">
+      <h2 class="reveal">Habits are signals.<br>Together they tell a story.</h2>
+      <div class="about-grid">
+        <article class="glass reveal"><h3>What it measures</h3><p>Twelve inputs across who you are, how you study, how you use social media and how you live: sleep, movement and stress.</p></article>
+        <article class="glass reveal"><h3>Why habits matter</h3><p>Hours online, late-night unlocks and a short night's sleep tend to travel together. Seeing them side by side makes patterns easier to notice.</p></article>
+        <article class="glass reveal"><h3>How the prediction works</h3><p>Your answers go to a machine learning model trained on student survey data. It returns one number: a predicted Mental Health Score.</p></article>
+      </div>
+      <div class="center reveal"><button class="btn" id="ctaStart"><span>Start Assessment</span></button></div>
+    </div>
+  </section>
+
+  <section class="assess" id="assess">
+    <div class="wrap narrow">
+      <h2 class="reveal">Tell us about your day.</h2>
+      <p class="lead reveal">Four short steps. Nothing is stored by this page; answers go only to your own local model server.</p>
+      <div class="glass panel reveal">
+        <div class="progress" id="progress" aria-label="Progress"></div>
+        <form id="form" novalidate>
+          <div id="steps"></div>
+          <p class="error" id="stepError" role="alert" hidden></p>
+          <div class="actions">
+            <button type="button" class="btn ghost" id="backBtn"><span>Back</span></button>
+            <button type="button" class="btn" id="nextBtn"><span>Continue</span></button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <section class="result" id="result" hidden>
+    <div class="wrap narrow center">
+      <p class="lead">Predicted Mental Health Score</p>
+      <div class="orb" id="orb">
+        <svg viewBox="0 0 200 200" aria-hidden="true">
+          <defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#62f0d8"/><stop offset="1" stop-color="#8f7bff"/></linearGradient></defs>
+          <circle class="r0" cx="100" cy="100" r="92"/>
+          <circle class="r1" cx="100" cy="100" r="80"/>
+          <circle class="r2" cx="100" cy="100" r="66"/>
+        </svg>
+        <div class="score" id="scoreNum">0.00</div>
+      </div>
+      <p class="explain">This number is the raw output of the model for the answers you gave. It is not a diagnosis, and this page does not define ranges or categories for it. Treat it as one data point to reflect on.</p>
+      <h3 class="sub">Your answers</h3>
+      <ul class="chips" id="summary"></ul>
+      <button class="btn" id="retake"><span>Retake the assessment</span></button>
+    </div>
+  </section>
+</main>
+
+<footer id="disclaimer">
+  <div class="wrap foot">
+    <div><strong>MindScope AI</strong><p>A student machine learning project built with FastAPI, scikit-learn style tooling and a vanilla web frontend.</p></div>
+    <p class="small">Disclaimer: predictions are statistical estimates, not clinical assessments or medical advice. If you are struggling, please talk to a qualified professional or someone you trust.</p>
+  </div>
+</footer>
+
+<div class="loader" id="loader" hidden aria-live="polite"><div class="lo"><i></i><i></i><i></i></div><p>Reading your signals…</p></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="three-scene.js"></script>
+<script src="animations.js"></script>
+<script src="prediction.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
