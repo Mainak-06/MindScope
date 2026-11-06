@@ -1,6 +1,6 @@
 /* Multi-step assessment + real call to the FastAPI backend. No fake scores anywhere. */
 (function () {
-  const API_URL = 'https://mind-matrix-hnir.onrender.com';
+  const API_URL = 'https://mind-matrix-hnir.onrender.com/predict';
   const COUNTRIES = ['India','USA','Canada','Australia','UK','Germany','Mexico','Turkey','France','Brazil','China','Japan','South Korea','Russia','Italy','Spain','Netherlands','Sweden','Norway','Denmark','Switzerland','Ireland','Pakistan','Bangladesh','Nepal','Sri Lanka','Indonesia','Malaysia','Singapore','Thailand','Vietnam','Philippines','Egypt','Nigeria','Kenya','South Africa','Argentina','Chile','Colombia','Peru','Poland','Portugal','Greece','Ukraine','Israel','UAE','Saudi Arabia','New Zealand'].sort();
   const PLATFORMS = ['Facebook','LinkedIn','Instagram','Snapchat','Twitter','YouTube','TikTok','LINE','KakaoTalk','VKontakte','WhatsApp','WeChat'];
 
